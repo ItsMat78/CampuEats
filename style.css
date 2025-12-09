@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+body { font-family: 'Nunito', sans-serif; }
+
+/* --- GLASSMORPHISM --- */
+.glass-panel {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(249, 115, 22, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+}
+
+/* --- CAROUSEL ANIMATIONS --- */
+
+/* 1. The Entrance (Slide Up + Fade In) */
+.carousel-text-enter {
+    animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. The Exit (Fade Out quickly) */
+.carousel-text-exit {
+    opacity: 0;
+    transform: translateY(-10px); /* Move up slightly as it disappears */
+    transition: all 0.3s ease-in;
+}
+
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Start 30px down */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optional: Add a subtle zoom to the background image for a "Cinematic" feel */
+.carousel-bg-animate {
+    animation: zoomSlow 6s linear infinite alternate;
+}
+
+@keyframes zoomSlow {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- MODAL ANIMATION --- */
+.modal-enter {
+    animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes modalPop {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- FILTER BUTTONS --- */
+.filter-btn {
+    /* Use Flexbox for perfect alignment */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    
+    /* Ensure height is consistent */
+    height: 36px;
+    padding: 0 20px;
+}
+
+.filter-btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background: linear-gradient(90deg, #f97316 0%, #ea580c 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+    padding-right: 16px; /* Adjust padding to accommodate the icon */
+}
+
+/* The 'X' Icon - Now a Flex Item */
+.filter-btn::after {
+    content: '\f00d'; /* FontAwesome X icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.6rem;
+    
+    /* Initial State (Hidden & Collapsed) */
+    opacity: 0;
+    max-width: 0;
+    margin-left: 0;
+    
+    /* Make it look like a badge */
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    
+    /* Center the X inside the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Smooth Slide-In Animation */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.filter-btn.active::after {
+    opacity: 1;
+    max-width: 18px; /* Expand to full width */
+    margin-left: 10px; /* Add spacing between text and X */
+}
+
+/* Add these to style.css if missing */
+
+.carousel-text-enter {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.carousel-text-exit {
+    opacity: 0;
+    transition: opacity 0.4s ease; /* Faster exit for snappier feel */
+}
+/* Remove X from the All button */
+/* Remove X from the All button AND fix alignment */
+#btn-all::after {
+    display: none !important;
+}
+
+#btn-all.active {
+    /* Reset padding to match the left side so text stays centered */
+    padding-right: 20px !important; 
+    padding-left: 20px !important;
+}
+
+/* Fix for the lag: Optimize Glassmorphism */
+/* Browsers struggle to blur 30+ items at once. We reduce the load here. */
+.glass-card {
+    /* Use a static semi-transparent color instead of heavy blur for the grid items */
+    background: rgba(30, 41, 59, 0.7); 
+    backdrop-filter: none; /* Disabling blur on cards massively improves FPS */
+    -webkit-backdrop-filter: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Only blur on hover when the user focuses on one item */
+.glass-card:hover {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-color: rgba(249, 115, 22, 0.5);
+    transform: translateY(-2px); /* Reduce movement distance to save processing */
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Hide scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+
+/* --- DIRECTIONAL CAROUSEL ANIMATIONS --- */
+
+/* IMAGE SLIDES */
+.slide-in-from-right {
+    animation: slideInRight 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+.slide-in-from-left {
+    animation: slideInLeft 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+/* TEXT FADE SLIDES */
+.text-fade-in-right {
+    animation: textFadeInRight 0.8s ease-out forwards;
+}
+.text-fade-in-left {
+    animation: textFadeInLeft 0.8s ease-out forwards;
+}
+
+@keyframes textFadeInRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes textFadeInLeft {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Ensure container clips the sliding image so no scrollbars appear */
+#carousel-container {
+    overflow: hidden; 
+}

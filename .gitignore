@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+
+# Environment variables (Safety first!)
+.env
+
+# System files
+.DS_Store
+Thumbs.db
