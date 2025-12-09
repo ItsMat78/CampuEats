@@ -6,8 +6,6 @@
 
 Built with performance and UI/UX in mind, it features a modern **Glassmorphism design**, **Lazy Loading** for image optimization, and a robust **MySQL** backend.
 
----
-
 ## 🚀 Key Features
 
 ### 👤 For Students (Customer View)
@@ -24,16 +22,12 @@ Built with performance and UI/UX in mind, it features a modern **Glassmorphism d
 - **Live Status Updates:** Move orders from `New` → `Cooking` → `Ready` → `Completed`.
 - **Inventory Logic:** Items automatically hide from the menu if stock hits zero (SQL Logic).
 
----
-
 ## 🛠️ Tech Stack
 
 - **Frontend:** HTML5, Tailwind CSS, Vanilla JavaScript (ES6+).
 - **Backend:** Node.js, Express.js.
 - **Database:** MySQL (Relational DB with Complex Joins).
 - **Assets:** FontAwesome (Icons), Google Fonts (Nunito).
-
----
 
 ## ⚙️ Installation & Setup
 
@@ -46,16 +40,16 @@ Follow these steps to run the project locally.
 
 ### 2. Clone the Repository
 
-````bash
-git clone [https://github.com/YOUR_USERNAME/CampusEats.git](https://github.com/YOUR_USERNAME/CampusEats.git)
+```bash
+git clone [https://github.com/ItsMat78/CampuEats.git](https://github.com/ItsMat78/CampuEats.git)
 cd CampusEats
-
+```
 
 ### 3\. Install Dependencies
 
 ```bash
 npm install
-````
+```
 
 ### 4\. Database Setup
 
@@ -84,8 +78,6 @@ node server.js
 
 Visit `http://localhost:3000` in your browser.
 
----
-
 ## 📂 Project Structure
 
 ```
@@ -100,8 +92,6 @@ CampusEats/
 └── README.md         # Documentation
 ```
 
----
-
 ## 🧠 Highlights
 
 1.  **SQL Complexity:** The app uses `LEFT JOIN` queries to fetch Menu Items + Category Names + Inventory Stock in a single request.
@@ -112,7 +102,3 @@ CampusEats/
 ---
 
 Made with ❤️ by Shreyash and Sameer.
-
-```
-
-```
