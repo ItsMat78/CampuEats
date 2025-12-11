@@ -3,6 +3,7 @@ node_modules/
 
 # Environment variables (Safety first!)
 .env
+.claude/
 
 # System files
 .DS_Store

@@ -1,8 +1,8 @@
-# 🍔 CampusEats - Smart Canteen Management System
+# 🍔 IIITEats - Smart Canteen Management System
 
 ## 📖 Overview
 
-**CampusEats** is a full-stack web application designed to digitize university canteen operations. It bridges the gap between students and the kitchen staff, offering a seamless ordering experience and a real-time Kitchen Display System (KDS).
+**IIITEats** is a full-stack web application designed to digitize university canteen operations. It bridges the gap between students and the kitchen staff, offering a seamless ordering experience and a real-time Kitchen Display System (KDS).
 
 Built with performance and UI/UX in mind, it features a modern **Glassmorphism design**, **Lazy Loading** for image optimization, and a robust **MySQL** backend.
 
@@ -42,7 +42,7 @@ Follow these steps to run the project locally.
 
 ```bash
 git clone [https://github.com/ItsMat78/CampuEats.git](https://github.com/ItsMat78/CampuEats.git)
-cd CampusEats
+cd IIITEats
 ```
 
 ### 3\. Install Dependencies
@@ -81,7 +81,7 @@ Visit `http://localhost:3000` in your browser.
 ## 📂 Project Structure
 
 ```
-CampusEats/
+IIITEats/
 ├── public/
 │   └── images/       # High-res menu images
 ├── database_schema.sql # SQL Import file
